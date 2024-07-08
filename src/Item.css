@@ -1,0 +1,23 @@
+.item-container{
+  display: flex;
+}
+
+.Item{
+  display: none;
+}
+
+button{
+  width: 2.5em;
+  color: green;
+  margin: 4px;
+  border: solid green 2px;
+  border-radius: 4px;
+  padding: 2px;
+  font-size: 1.1em;
+  background: none;
+}
+
+button:hover{
+  background: green;
+  color: beige;
+}

@@ -1,10 +1,11 @@
+import './Item.css'
 import {useState} from 'react'
 
 export default function Item({name, stock, cost, imgname, imglink, category, manufacturer}){
   const [selected, setSelected] = useState(0)
   const [curStock, setStock] = useState(stock)
   return (
-    <div>
+    <div className="Item item-container" id={name.split(" ").join("")}>
       <img src={imglink} height={180} width={180} alt={imgname}/>
       <table>
         <tbody>
@@ -29,30 +30,42 @@ export default function Item({name, stock, cost, imgname, imglink, category, man
           <tr>
             <td>Buy:</td>
             <td>
-              <button 
-                onClick={()=>{
-                  if (selected < stock){
-                    setSelected(selected+1)
-                    setStock(curStock-1)
-                  }
-                }}>+</button>
-            </td>
-            <td>
-              <span className='itemsel'>{selected} </span>
-            </td>
-            <td>
-              <button
-                onClick={()=>{
-                  if (selected > 0){
-                    setSelected(selected-1)
-                    setStock(curStock+1)
-                  }
-                }}>-</button>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <button 
+                        onClick={()=>{
+                          if (selected < stock){
+                            setSelected(selected+1)
+                            setStock(curStock-1)
+                          }
+                        }}>+</button>
+                      </td>
+                      <td>
+                      <span className='itemsel'>{selected} </span>
+                      </td>
+                      <td>
+                      <button
+                        onClick={()=>{
+                          if (selected > 0){
+                            setSelected(selected-1)
+                            setStock(curStock+1)
+                          }
+                        }}>-</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </td>
           </tr>
           <tr>
-            <td>Add to Cart:</td>
-            <td></td>
+            <td>
+              <button onClick={()=>{stock = curStock}}>Buy</button>
+            </td>
+            <td>
+              <button>Cart</button>
+            </td>
           </tr>
         </tbody>
       </table>
