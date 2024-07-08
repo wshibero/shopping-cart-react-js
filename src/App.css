@@ -1,3 +1,34 @@
 main {
 }
 
+.AllCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.CardGroup {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+
+@media (max-width: 1200px) {
+  .Card {
+    flex-basis: calc(33.33% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .Card {
+    flex-basis: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .Card {
+    flex-basis: 100%;
+  }
+}
